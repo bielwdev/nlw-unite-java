@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import rocketseat.com.passin.domain.event.Event;
 
 import java.time.LocalDateTime;
 
@@ -27,6 +28,7 @@ public class Attendee {
 
     @ManyToOne
     @JoinColumn(name = "event_id", nullable = false)
+
     private Event event;
 
     @Column(name = "created_at")
