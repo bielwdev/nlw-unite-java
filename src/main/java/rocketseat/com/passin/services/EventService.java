@@ -3,6 +3,7 @@ package rocketseat.com.passin.services;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import rocketseat.com.passin.domain.event.Event;
+import rocketseat.com.passin.dto.event.EventResponseDTO;
 import rocketseat.com.passin.repositories.EventRepository;
 
 @Service
@@ -10,8 +11,8 @@ import rocketseat.com.passin.repositories.EventRepository;
 public class EventService {
     private final EventRepository eventRepository;
 
-    public void getEventDetail(String eventId){
+    public EventResponseDTO getEventDetail(String eventId){
         Event event = this.eventRepository.findById(eventId).orElseThrow(() -> new RuntimeException("Event not found with ID:" + eventId));
-        return;
+        return new EventResponseDTO(event, 0);
     }
 }
