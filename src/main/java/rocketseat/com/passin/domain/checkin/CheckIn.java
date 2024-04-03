@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rocketseat.com.passin.domain.attendee.Attendee;
-
 import java.time.LocalDateTime;
 
 @Entity
