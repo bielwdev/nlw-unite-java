@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "checl_ins")
+@Table(name = "check_ins")
 public class CheckIn {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
