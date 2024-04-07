@@ -17,9 +17,11 @@ public class CheckInService {
 
     public void registerCheckIn(Attendee attendee){
         this.verifyCheckInExits(attendee.getId());
+
         CheckIn newCheckIn = new CheckIn();
         newCheckIn.setAttendee(attendee);
         newCheckIn.setCreatedAt(LocalDateTime.now());
+
         this.checkinRepository.save(newCheckIn);
     }
 
