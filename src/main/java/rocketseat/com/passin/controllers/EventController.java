@@ -39,15 +39,15 @@ public class EventController {
     public ResponseEntity<AttendeeIdDTO> registerParticipant(@PathVariable String eventId, @RequestBody AttendeeRequestDTO body, UriComponentsBuilder uriComponentsBuilder){
         AttendeeIdDTO attendeeIdDTO = this.eventService.registerAttendeeOnEvent(eventId, body);
 
-        var uri = uriComponentsBuilder.path("/attendees/{attendeeId/badge}").buildAndExpand(attendeeIdDTO.attendeeId()).toUri();
+        var uri = uriComponentsBuilder.path("/attendees/{attendId}/badge").buildAndExpand(attendeeIdDTO.attendeeId()).toUri();
 
         return ResponseEntity.created(uri).body(attendeeIdDTO);
     }
 
     @GetMapping("/attendees/{id}")
     public ResponseEntity<AttendeesListRespondeDTO> getEventAttendees(@PathVariable String id){
-        AttendeesListRespondeDTO attendeesListResponde = this.attendeeService.getEventsAttendee(id);
-        return ResponseEntity.ok(attendeesListResponde);
+        AttendeesListRespondeDTO attendeesListResponse = this.attendeeService.getEventsAttendee(id);
+        return ResponseEntity.ok(attendeesListResponse);
     }
 
 }
