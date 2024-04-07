@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import rocketseat.com.passin.domain.attendee.Attendee;
 import rocketseat.com.passin.domain.attendee.exceptions.AttendeeAlreadyExistException;
+import rocketseat.com.passin.domain.attendee.exceptions.AttendeeNotFoundException;
 import rocketseat.com.passin.domain.checkin.CheckIn;
 import rocketseat.com.passin.dto.attendee.AttendeeDetails;
 import rocketseat.com.passin.dto.attendee.AttendeesListRespondeDTO;
@@ -44,6 +45,10 @@ public class AttendeeService {
     public Attendee registerAttendee(Attendee newAttendee){
         this.attendeeRepository.save(newAttendee);
             return newAttendee;
+    }
+
+    public void getAttendeeBadge(String attendeeId){
+        Attendee attendee = this.attendeeRepository.findById(attendeeId).orElseThrow(() -> new AttendeeNotFoundException("Attendee not found with id" = attendeeId));
     }
 
 }
